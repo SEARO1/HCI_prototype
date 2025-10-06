@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container" id="loginContainer">
+        <h1>Login</h1>
+        <form id="loginForm">
+          <div class="input-group">
+            <label for="loginUsername">Username</label>
+            <input type="text" id="loginUsername" required />
+          </div>
+          <div class="input-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required />
+          </div>
+          <button type="submit" id="loginButton" class="btn" disabled>
+            Login
+          </button>
+        </form>
+        <p class="switch-text">
+          Don't have an account? <a href="#" id="showRegister">Register here</a>
+        </p>
+      </div>
+
+      <div class="form-container hidden" id="registerContainer">
+        <h1>Register</h1>
+        <form id="registerForm">
+          <div class="input-group">
+            <label for="registerUsername">Username</label>
+            <input type="text" id="registerUsername" required />
+          </div>
+          <div class="input-group">
+            <label for="registerPassword">Password</label>
+            <input type="password" id="registerPassword" required />
+          </div>
+          <div class="input-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" required />
+          </div>
+
+          <div class="password-requirements">
+            <p>Password Requirements:</p>
+            <div class="requirement" id="reqSpecial">
+              <span class="indicator"></span>
+              <span>Special symbol (!@#$%^&*)</span>
+            </div>
+            <div class="requirement" id="reqUppercase">
+              <span class="indicator"></span>
+              <span>Uppercase letter (A-Z)</span>
+            </div>
+            <div class="requirement" id="reqLowercase">
+              <span class="indicator"></span>
+              <span>Lowercase letter (a-z)</span>
+            </div>
+            <div class="requirement" id="reqNumber">
+              <span class="indicator"></span>
+              <span>Number (0-9)</span>
+            </div>
+            <div class="requirement" id="reqMatch">
+              <span class="indicator"></span>
+              <span>Passwords match</span>
+            </div>
+          </div>
+
+          <button type="submit" id="registerButton" class="btn" disabled>
+            Register
+          </button>
+        </form>
+        <p class="switch-text">
+          Already have an account? <a href="#" id="showLogin">Login here</a>
+        </p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
