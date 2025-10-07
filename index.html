@@ -7,6 +7,92 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Chat Page Container -->
+    <div class="chat-page hidden" id="chatPage">
+      <div class="chat-header">
+        <h2>AI Chat Assistant</h2>
+        <button id="closeAppBtn" class="close-app-btn">✕ Close App</button>
+      </div>
+
+      <div class="chat-container">
+        <!-- Top: Chat area (independent, upper part) -->
+        <section class="chat-main">
+          <div class="chat-messages" id="chatMessages">
+            <div class="message ai-message">
+              <div class="message-bubble">
+                <p>Hello! I'm here to help you. How are you feeling today?</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Bottom controls row: Left stress bar + Right input -->
+        <div class="chat-controls">
+          <!-- Left: Vertical Stress Bar -->
+          <aside class="stress-panel" aria-label="Your stress level">
+            <div class="stress-vertical">
+              <div class="stress-vertical-fill" id="stressBar"></div>
+            </div>
+            <p class="stress-percentage" id="stressPercentage">0%</p>
+          </aside>
+
+          <!-- Right: Input -->
+          <div class="chat-input-container">
+            <input
+              type="text"
+              id="chatInput"
+              class="chat-input"
+              placeholder="Type something to let me know."
+            />
+            <button id="sendBtn" class="send-btn">↑</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stress Warning Modal -->
+    <div class="modal hidden" id="stressModal">
+      <div class="modal-content">
+        <p>
+          Your stress level is too high. Do you want to take a break or take a
+          deep-breath?
+        </p>
+        <div class="modal-buttons">
+          <button id="continueBtn" class="modal-btn">Continue</button>
+          <button id="takeBreakBtn" class="modal-btn">Take a Break</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Emoji Feedback Modal -->
+    <div class="modal hidden" id="feedbackModal">
+      <div class="modal-content">
+        <h3>How are you feeling?</h3>
+        <div class="emoji-selector">
+          <button class="emoji-btn" data-emoji="relieved">😊 Relieved</button>
+          <button class="emoji-btn" data-emoji="neutral">😐 Neutral</button>
+          <button class="emoji-btn" data-emoji="stressed">
+            😟 Still Stressed
+          </button>
+        </div>
+        <button
+          id="submitFeedbackBtn"
+          class="modal-btn submit-feedback-btn"
+          disabled
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+
+    <!-- Feedback Response Modal -->
+    <div class="modal hidden" id="responseModal">
+      <div class="modal-content">
+        <p>Thanks! We'll refine for fewer interruptions.</p>
+        <button id="closeResponseBtn" class="modal-btn">OK</button>
+      </div>
+    </div>
+
     <div class="container">
       <div class="form-container" id="loginContainer">
         <h1>Login</h1>
