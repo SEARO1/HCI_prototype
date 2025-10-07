@@ -292,42 +292,75 @@ input[type="password"]:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  min-height: 94px; /* keep a stable area for the bar + % label */
+  gap: 6px;
+  min-height: 110px; /* stable area for thermometer + % label */
 }
 
+/* Label above thermometer */
+.stress-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #000000;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+/* Thermometer container */
 .stress-vertical {
-  width: 50px;
-  height: 80px; /* fixed track height so it always remains visible */
-  max-height: 180px;
-  background-color: #d3d3d3;
-  border-radius: 10px;
   position: relative;
-  overflow: hidden;
+  width: 22px; /* slim vertical thermometer */
+  height: 88px; /* small size per request */
+  background: #d9d9d9; /* track color */
+  border-radius: 12px; /* rounded tube */
   border: 2px solid #bbbbbb;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
+/* Thermometer mercury */
 .stress-vertical-fill {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 0%;
-  background-color: #ffd700;
-  transition: height 0.3s ease, background-color 0.3s ease;
+  background: linear-gradient(
+    180deg,
+    #fff2b2 0%,
+    #ffd700 60%
+  ); /* default low */
+  transition: height 0.3s ease, background-color 0.3s ease, background 0.3s ease;
 }
 
+/* Medium threshold styling */
 .stress-vertical-fill.medium {
-  background-color: #ffa500;
+  background: linear-gradient(180deg, #ffd8a8 0%, #ffa500 60%);
 }
 
+/* High threshold styling */
 .stress-vertical-fill.high {
-  background-color: #ff6347;
+  background: linear-gradient(180deg, #ffb3a8 0%, #ff6347 60%);
+  animation: pulse 1.2s ease-in-out infinite; /* subtle caution pulse */
 }
 
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 99, 71, 0.35);
+  }
+  70% {
+    box-shadow: 0 0 8px 6px rgba(255, 99, 71, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 99, 71, 0);
+  }
+}
+
+/* Percentage label only (no textual levels) */
 .stress-percentage {
   color: #000000;
-  font-size: 14px;
+  font-size: 12px; /* compact */
   font-weight: bold;
   text-align: center;
 }
